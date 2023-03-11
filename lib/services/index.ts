@@ -1,1 +1,1 @@
-export * from './url-inspection.service';
+export * from './url-inspection.client';

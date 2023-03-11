@@ -1,6 +1,6 @@
 import { HttpModule } from '@nestjs/axios';
 import { DynamicModule, Module } from '@nestjs/common';
-import { UrlInspectionService } from './services/url-inspection.service';
+import { UrlInspectionClient } from './services/url-inspection.client';
 import { searchconsole, auth } from '@googleapis/searchconsole';
 import { SearchConsole } from './search-console';
 import { SitesClient } from './services/sites.client';
@@ -26,9 +26,9 @@ export interface SearchConsoleModuleOptions {
         return searchconsole({ version: 'v1', auth: oauth2Client });
       },
     },
-    UrlInspectionService,
+    UrlInspectionClient,
   ],
-  exports: [SearchConsole, UrlInspectionService],
+  exports: [SearchConsole, UrlInspectionClient],
 })
 export class SearchConsoleModule {
   static forRoot(options: SearchConsoleModuleOptions): DynamicModule {
@@ -49,9 +49,9 @@ export class SearchConsoleModule {
           },
         },
         SitesClient,
-        UrlInspectionService,
+        UrlInspectionClient,
       ],
-      exports: [SearchConsole, UrlInspectionService],
+      exports: [SearchConsole, UrlInspectionClient],
     };
   }
 }

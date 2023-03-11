@@ -10,7 +10,7 @@ import {
 } from '../types';
 
 @Injectable()
-export class UrlInspectionService {
+export class UrlInspectionClient {
   constructor(private readonly httpService: HttpService) {}
   /*
    * View the indexed, or indexable, status of the provided URL. Presently only the status of the
